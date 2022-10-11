@@ -3,9 +3,10 @@
 
 // seattle ----------------------------------------------------------------------------------------------------------------------------
 let seattleList = document.getElementById('seattleList');
+
 console.log(seattleList);
 
-let hours = ['6 a.m', '7 a.m', '8 a.m', '9 a.m', '10 a.m', '11 a.m', '12 p.m', '1 p.m', '2 p.m', '3 p.m', '4 p.m', '5 p.m', '6 p.m', '7 p.m']
+let hours = ['6 a.m', '7 a.m', '8 a.m', '9 a.m', '10 a.m', '11 a.m', '12 p.m', '1 p.m', '2 p.m', '3 p.m', '4 p.m', '5 p.m', '6 p.m', '7 p.m'];
 
 
 let seattle = {
@@ -14,27 +15,31 @@ let seattle = {
   max: 65,
   avg: 6.3,
   dailyTotal: 0,
+  cookiesSoldEachHourArray: [],
   getRandomCustomers: function() {
     return Math.floor(Math.random() * (this.max - this.min + 1) + this.min); 
   },
-   render: function () {
-       
-     for (let i = 0; i < hours.length; i++) {
-       let everyHour = this.getRandomCustomers();
-       let li = document.createElement('li');
-       li.textContent = (`${hours[i]}: ${everyHour} Cookies`);
-       seattleList.appendChild(li);
-       this.dailyTotal += everyHour;
+  calcHourlySales: function () {
+    for (let i = 0; i < hours.length; i++) {
+      let randNum = this.getRandomCustomers();
+      let cookiesSoldThisHour = Math.ceil(this.avg * randNum);
+      this.cookiesSoldEachHourArray.push(cookiesSoldThisHour)
+      this.dailyTotal += cookiesSoldThisHour;
+    }
+  },
+  renderList: function() {
+  this.calcHourlySales();
+  for (let i = 0; i < hours.length; i++) {
+  let listItemsea = document.createElement('li');
+  listItemsea.textContent = `${hours[i]}: ${this.cookiesSoldEachHourArray[i]} cookies`;
+  seattleList.appendChild(listItemsea);
   }
-   let finalTotalElement=document.createElement('li')
-   finalTotalElement.textContent=(`Total: ${this.dailyTotal}`)
-   seattleList.appendChild(finalTotalElement)
-  
+  let totalLi = document.createElement('li');
+  totalLi.textContent = `Total: ${this.dailyTotal}`;
+  seattleList.appendChild(totalLi);
+ }
 }
-
-}
-seattle.render();
-//console.log(seattle.getRandomCustomers());
+seattle.renderList();
 
 // tokyo -----------------------------------------------------------------------------------------------------------------------------------
 
@@ -49,28 +54,31 @@ let tokyo = {
   max: 24,
   avg: 1.2,
   dailyTotal: 0, 
+  cookiesSoldEachHourArray: [],
   getRandomCustomers: function() {
     return Math.floor(Math.random() * (this.max - this.min + 1) + this.min); 
   },
-render: function () {
-       
+  calcHourlySales: function () {
+    for (let i = 0; i < hours.length; i++) {
+      let randNum = this.getRandomCustomers();
+      let cookiesSoldThisHour = Math.ceil(this.avg * randNum);
+      this.cookiesSoldEachHourArray.push(cookiesSoldThisHour)
+      this.dailyTotal += cookiesSoldThisHour;
+    }
+  },
+  renderList: function() {
+  this.calcHourlySales();
   for (let i = 0; i < hours.length; i++) {
-    let everyHour = this.getRandomCustomers();
-    let li = document.createElement('li');
-    li.textContent = (`${hours[i]}: ${everyHour} Cookies`);
-    tokyoList.appendChild(li);
-    this.dailyTotal += everyHour;
+  let listItemsea = document.createElement('li');
+  listItemsea.textContent = `${hours[i]}: ${this.cookiesSoldEachHourArray[i]} cookies`;
+  tokyoList.appendChild(listItemsea);
+  }
+  let totalLi = document.createElement('li');
+  totalLi.textContent = `Total: ${this.dailyTotal}`;
+  tokyoList.appendChild(totalLi);
+  }
 }
-let finalTotalElement=document.createElement('li')
-finalTotalElement.textContent=(`Total: ${this.dailyTotal}`)
-tokyoList.appendChild(finalTotalElement)
-
-}
-
-}
-tokyo.render();
-
-//console.log(tokyo.getRandomCustomers());
+  tokyo.renderList();
 
 // dubai -----------------------------------------------------------------------------------------------------------------------------------
 
@@ -85,28 +93,31 @@ let dubai = {
   max: 38,
   avg: 3.7,
   dailyTotal: 0, 
+  cookiesSoldEachHourArray: [],
   getRandomCustomers: function() {
     return Math.floor(Math.random() * (this.max - this.min + 1) + this.min); 
   },
-render: function () {
-       
+  calcHourlySales: function () {
+    for (let i = 0; i < hours.length; i++) {
+      let randNum = this.getRandomCustomers();
+      let cookiesSoldThisHour = Math.ceil(this.avg * randNum);
+      this.cookiesSoldEachHourArray.push(cookiesSoldThisHour)
+      this.dailyTotal += cookiesSoldThisHour;
+    }
+  },
+  renderList: function() {
+  this.calcHourlySales();
   for (let i = 0; i < hours.length; i++) {
-    let everyHour = this.getRandomCustomers();
-    let li = document.createElement('li');
-    li.textContent = (`${hours[i]}: ${everyHour} Cookies`);
-    dubaiList.appendChild(li);
-    this.dailyTotal += everyHour;
+  let listItemsea = document.createElement('li');
+  listItemsea.textContent = `${hours[i]}: ${this.cookiesSoldEachHourArray[i]} cookies`;
+  dubaiList.appendChild(listItemsea);
+  }
+  let totalLi = document.createElement('li');
+  totalLi.textContent = `Total: ${this.dailyTotal}`;
+  dubaiList.appendChild(totalLi);
+ }
 }
-let finalTotalElement=document.createElement('li')
-finalTotalElement.textContent=(`Total: ${this.dailyTotal}`)
-dubaiList.appendChild(finalTotalElement)
-
-}
-
-}
-dubai.render();
-
-//console.log(dubai.getRandomCustomers());
+dubai.renderList();
 
 // paris -----------------------------------------------------------------------------------------------------------------------------------
 
@@ -121,28 +132,31 @@ let paris = {
   max: 38,
   avg: 2.3,
   dailyTotal: 0, 
+  cookiesSoldEachHourArray: [],
   getRandomCustomers: function() {
     return Math.floor(Math.random() * (this.max - this.min + 1) + this.min); 
   },
-render: function () {
-       
+  calcHourlySales: function () {
+    for (let i = 0; i < hours.length; i++) {
+      let randNum = this.getRandomCustomers();
+      let cookiesSoldThisHour = Math.ceil(this.avg * randNum);
+      this.cookiesSoldEachHourArray.push(cookiesSoldThisHour)
+      this.dailyTotal += cookiesSoldThisHour;
+    }
+  },
+  renderList: function() {
+  this.calcHourlySales();
   for (let i = 0; i < hours.length; i++) {
-    let everyHour = this.getRandomCustomers();
-    let li = document.createElement('li');
-    li.textContent = (`${hours[i]}: ${everyHour} Cookies`);
-    parisList.appendChild(li);
-    this.dailyTotal += everyHour;
+  let listItemsea = document.createElement('li');
+  listItemsea.textContent = `${hours[i]}: ${this.cookiesSoldEachHourArray[i]} cookies`;
+  parisList.appendChild(listItemsea);
+  }
+  let totalLi = document.createElement('li');
+  totalLi.textContent = `Total: ${this.dailyTotal}`;
+  parisList.appendChild(totalLi);
+ }
 }
-let finalTotalElement=document.createElement('li')
-finalTotalElement.textContent=(`Total: ${this.dailyTotal}`)
-parisList.appendChild(finalTotalElement)
-
-}
-
-}
-paris.render();
-
-//console.log(paris.getRandomCustomers());
+paris.renderList();
 
 // lima ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -152,30 +166,33 @@ console.log(limaList);
 
 
 let lima= {
- name: 'Lima',
+  name: 'Lima',
   min: 2,
   max: 16,
   avg: 4.6,
   dailyTotal: 0,
+  cookiesSoldEachHourArray: [],
   getRandomCustomers: function() {
     return Math.floor(Math.random() * (this.max - this.min + 1) + this.min); 
   },
-render: function () {
-       
+  calcHourlySales: function () {
+    for (let i = 0; i < hours.length; i++) {
+      let randNum = this.getRandomCustomers();
+      let cookiesSoldThisHour = Math.ceil(this.avg * randNum);
+      this.cookiesSoldEachHourArray.push(cookiesSoldThisHour)
+      this.dailyTotal += cookiesSoldThisHour;
+    }
+  },
+  renderList: function() {
+  this.calcHourlySales();
   for (let i = 0; i < hours.length; i++) {
-    let everyHour = this.getRandomCustomers();
-    let li = document.createElement('li');
-    li.textContent = (`${hours[i]}: ${everyHour} Cookies`);
-    limaList.appendChild(li);
-    this.dailyTotal += everyHour;
+  let listItemsea = document.createElement('li');
+  listItemsea.textContent = `${hours[i]}: ${this.cookiesSoldEachHourArray[i]} cookies`;
+  limaList.appendChild(listItemsea);
+  }
+  let totalLi = document.createElement('li');
+  totalLi.textContent = `Total: ${this.dailyTotal}`;
+  limaList.appendChild(totalLi);
+ }
 }
-let finalTotalElement=document.createElement('li')
-finalTotalElement.textContent=(`Total: ${this.dailyTotal}`)
-limaList.appendChild(finalTotalElement)
-
-}
-
-}
-lima.render();
-
-//console.log(lima.getRandomCustomers());
+lima.renderList();
