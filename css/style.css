@@ -17,7 +17,13 @@ img {
 }
 
 body {
-  background-color: rgb(53, 53, 53);
+  background-color: rgb(99, 88, 54);
+  border-radius: 20px;
+  background-image: url(https://images.pexels.com/photos/2080960/pexels-photo-2080960.jpeg);
+  height: auto;
+  margin: auto;
+  background-size: cover;
+  backdrop-filter:unset;
 }
 table {
     width: 85rem;
@@ -61,6 +67,12 @@ th {
     font-family: 'Secular One', sans-serif;
 }
 
-tfoot td {
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+main img {
+  margin: 2rem;
+  width: 20rem;
+  display: inline-flex ;
   
 }
