@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'Roboto Condensed', sans-serif;
+  src: url(https://fonts.google.com/specimen/Roboto+Condensed);
+  font-weight: bolder;
+}
+
+.storeContainer {
+    margin: 2rem;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+
+}
+
+body {
+  background-color: rgb(53, 53, 53);
+}
+table {
+    width: 85rem;
+    border: 9px solid rgb(255, 255, 255);
+}
+
+td {
+    border: 1px solid rgb(255, 255, 255);
+    text-align: center;
+    padding-top: 13px;
+}
+
+div {
+  display: block;
+  margin: 2rem;
+  text-align: center;
+  width: 85rem;
+  font-size: 2rem;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: red;
+}
+title {
+  display: block;
+  margin: 2rem;
+  text-align: center;
+  width: 85rem;
+  font-size: 2rem;
+  display: inline-block;
+  color: white;
+}
+th {
+    height: 30px;
+    padding: 10px 5px;
+    font-size: 1.1rem;
+    font-family: 'Secular One', sans-serif;
+}
+
+tfoot td {
+  background-color: black;
+  color: black;
+}
