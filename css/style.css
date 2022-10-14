@@ -76,3 +76,21 @@ main img {
   display: inline-flex ;
   
 }
+
+input:focus {
+  border-color: red;
+  color: red;
+  border-radius: 1rem;
+  border: 2rem;
+}
+
+button {
+  background-color: #ffffff;
+  color: #37ff00;
+  float: center;
+  padding: 1rem;
+  border-radius: 5rem;
+  margin: 1rem;
+  background-image: url(https://images.pexels.com/photos/2080960/pexels-photo-2080960.jpeg);
+  background-size: cover;
+}

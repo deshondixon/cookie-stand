@@ -296,3 +296,18 @@ new StoreConstructor('DUBAI', 11, 38, 3.7);
 new StoreConstructor('PARIS', 20, 38, 2.3);
 new StoreConstructor('LIMA', 2, 16, 4.6);
 createFooter();
+
+
+let form = document.querySelector(`form`);
+
+
+let seattleENTER = function(e) {
+  e.preventDefault(); 
+  console.log('Seattle has been entered.');
+
+  let newSeattle = new StoreConstructor('SEATTLE', 23, 65, 6.3);
+  console.log(newSeattle);
+  newSeattle.calThemValues();
+};
+
+form.addEventListener('submit', seattleENTER)
